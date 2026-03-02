@@ -23,7 +23,7 @@ panic-mode error recovery.
 
 ## Project Structure
 
-CoCo/ 
+CoCo/   
 ├── lexer.c <br>
 ├── lexer.h
 ├── lexerdef.h
