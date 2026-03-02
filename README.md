@@ -1,6 +1,6 @@
 ## Overview
 
-A modular compiler front-end implemented in C.\n
+A modular compiler front-end implemented in C.
 It includes a DFA-based lexical analyzer, automated FIRST and FOLLOW
 computation, LL(1) parse table construction, parse tree generation, and
 panic-mode error recovery.
@@ -23,8 +23,16 @@ panic-mode error recovery.
 
 ## Project Structure
 
-CoCo/ ├── lexer.c ├── parser.c ├── driver.c ├── grammar.txt ├── Makefile
-└── README.md
+CoCo/ 
+├── lexer.c 
+├── lexer.h
+├── lexerdef.h
+├── parser.c 
+├── parser.h 
+├── parserdef.h 
+├── Makefile
+├── grammar.txt 
+└── driver.c
 
 ------------------------------------------------------------------------
 
