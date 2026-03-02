@@ -1,6 +1,6 @@
 ## Overview
 
-A modular compiler front-end implemented in C.
+A modular compiler front-end implemented in C.\n
 It includes a DFA-based lexical analyzer, automated FIRST and FOLLOW
 computation, LL(1) parse table construction, parse tree generation, and
 panic-mode error recovery.
