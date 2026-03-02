@@ -1,0 +1,646 @@
+%Test Case 7: Large syntactically correct testcase (500+ lines)
+
+%Function 1: Sum of two integers
+_sumTwo input parameter list[int b2, int b3]
+output parameter list[int b4];
+	type int : b5;
+	b5 <--- b2 + b3;
+	b4 <--- b5;
+	return [b4];
+end
+
+%Function 2: Product of three integers
+_prodThree input parameter list[int c2, int c3, int c4]
+output parameter list[int c5];
+	type int : c6;
+	type int : c7;
+	c6 <--- c2 * c3;
+	c7 <--- c6 * c4;
+	c5 <--- c7;
+	return [c5];
+end
+
+%Function 3: Average of two reals
+_avgTwo input parameter list[int b2, real d3]
+output parameter list[real d4];
+	type real : d5;
+	d5 <--- d3 + d3;
+	d4 <--- d5 / 2;
+	return [d4];
+end
+
+%Function 4: Max of two ints
+_maxTwo input parameter list[int b2b, int b3b]
+output parameter list[int b4b];
+	if(b2b > b3b)
+	then
+		b4b <--- b2b;
+	else
+		b4b <--- b3b;
+	endif
+	return [b4b];
+end
+
+%Function 5: Absolute difference
+_absDiff input parameter list[int b2c, int b3c]
+output parameter list[int b4c];
+	if(b2c > b3c)
+	then
+		b4c <--- b2c - b3c;
+	else
+		b4c <--- b3c - b2c;
+	endif
+	return [b4c];
+end
+
+%Function 6: Factorial iterative
+_factorial input parameter list[int b2d]
+output parameter list[int b3d];
+	type int : b4d;
+	type int : b5d;
+	b3d <--- 1;
+	b4d <--- 1;
+	b5d <--- b2d;
+	while(b4d <= b5d)
+		b3d <--- b3d * b4d;
+		b4d <--- b4d + 1;
+	endwhile
+	return [b3d];
+end
+
+%Function 7: Power
+_power input parameter list[int b2bb, int b3bb]
+output parameter list[int b4bb];
+	type int : b5bb;
+	type int : b6bb;
+	b4bb <--- 1;
+	b5bb <--- 1;
+	b6bb <--- b3bb;
+	while(b5bb <= b6bb)
+		b4bb <--- b4bb * b2bb;
+		b5bb <--- b5bb + 1;
+	endwhile
+	return [b4bb];
+end
+
+%Function 8: Sum of first N
+_sumN input parameter list[int b2bc]
+output parameter list[int b3bc];
+	type int : b4bc;
+	b3bc <--- 0;
+	b4bc <--- 1;
+	while(b4bc <= b2bc)
+		b3bc <--- b3bc + b4bc;
+		b4bc <--- b4bc + 1;
+	endwhile
+	return [b3bc];
+end
+
+%Function 9: Process record
+_processRec input parameter list[record #data b2bd]
+output parameter list[real d3];
+	type real : d4;
+	type real : d5;
+	d4 <--- b2bd.val + b2bd.weight;
+	d5 <--- d4 / 2;
+	d3 <--- d5;
+	return [d3];
+end
+
+%Function 10: Distance
+_dist input parameter list[record #point b2cd, record #point b3cd]
+output parameter list[real d4];
+	type real : d5;
+	type real : d6;
+	type real : d7;
+	d5 <--- b2cd.x - b3cd.x;
+	d6 <--- b2cd.y - b3cd.y;
+	d7 <--- d5 * d5 + d6 * d6;
+	d4 <--- d7;
+	return [d4];
+end
+
+%Function 11: Classify using nested ifs
+_classify input parameter list[int b2cb, int b3cb]
+output parameter list[int b4cb];
+	type int : b5cb;
+	b5cb <--- b2cb + b3cb;
+	if(b5cb > 100)
+	then
+		if(b5cb > 200)
+		then
+			b4cb <--- 3;
+		else
+			b4cb <--- 2;
+		endif
+	else
+		if(b5cb > 50)
+		then
+			b4cb <--- 1;
+		else
+			b4cb <--- 0;
+		endif
+	endif
+	return [b4cb];
+end
+
+%Function 12: Nested while
+_matSum input parameter list[int b2db, int b3db]
+output parameter list[int b4db];
+	type int : b5db;
+	type int : b6db;
+	type int : b7db;
+	b4db <--- 0;
+	b5db <--- 1;
+	while(b5db <= b2db)
+		b6db <--- 1;
+		while(b6db <= b3db)
+			b7db <--- b5db * b6db;
+			b4db <--- b4db + b7db;
+			b6db <--- b6db + 1;
+		endwhile
+		b5db <--- b5db + 1;
+	endwhile
+	return [b4db];
+end
+
+%Function 13: Complex calc
+_cplxCalc input parameter list[int b2dc, int b3dc, int b4dc]
+output parameter list[int b5dc];
+	type int : b6dc;
+	type int : b7dc;
+	type int : c2dc;
+	type int : c3dc;
+	b6dc <--- (b2dc + b3dc) * (b4dc - b2dc);
+	b7dc <--- (b2dc * b3dc) + (b4dc / 2);
+	c2dc <--- b6dc - b7dc;
+	c3dc <--- (c2dc + b6dc) * (b7dc - c2dc);
+	b5dc <--- c3dc + c2dc + b6dc + b7dc;
+	return [b5dc];
+end
+
+%Function 14: Boolean tests
+_boolTest input parameter list[int b2dd, int b3dd, int b4dd]
+output parameter list[int b5dd];
+	b5dd <--- 0;
+	if((b2dd > b3dd) &&& (b3dd > b4dd))
+	then
+		b5dd <--- 1;
+	else
+		b5dd <--- 0;
+	endif
+	if((b2dd < b3dd) @@@ (b3dd < b4dd))
+	then
+		b5dd <--- b5dd + 10;
+	endif
+	if(~(b2dd == b3dd))
+	then
+		b5dd <--- b5dd + 100;
+	endif
+	return [b5dd];
+end
+
+%Function 15: Record ops
+_recOps input parameter list[record #line b2cc]
+output parameter list[real d3];
+	type real : d4;
+	type real : d5;
+	type real : d6;
+	d4 <--- b2cc.beginpoint.x + b2cc.endpoint.x;
+	d5 <--- b2cc.beginpoint.y + b2cc.endpoint.y;
+	d6 <--- d4 * d4 + d5 * d5;
+	d3 <--- d6;
+	return [d3];
+end
+
+%Function 16: Iter calc
+_iterCalc input parameter list[int b2bcd]
+output parameter list[int b3bcd];
+	type int : b4bcd;
+	type int : b5bcd;
+	type int : b6bcd;
+	type int : b7bcd;
+	type int : c2bcd;
+	b3bcd <--- 0;
+	b4bcd <--- 1;
+	b5bcd <--- 0;
+	b6bcd <--- 0;
+	b7bcd <--- 0;
+	while(b4bcd <= b2bcd)
+		b5bcd <--- b4bcd * b4bcd;
+		b6bcd <--- b5bcd + b4bcd;
+		b7bcd <--- b6bcd - b4bcd;
+		c2bcd <--- b5bcd + b6bcd + b7bcd;
+		b3bcd <--- b3bcd + c2bcd;
+		b4bcd <--- b4bcd + 1;
+	endwhile
+	return [b3bcd];
+end
+
+%Function 17: Multi call
+_multiCall input parameter list[int b2bdc, int b3bdc]
+output parameter list[int b4bdc];
+	type int : b5bdc;
+	type int : b6bdc;
+	type int : b7bdc;
+	[b5bdc] <--- call _sumTwo with parameters [b2bdc, b3bdc];
+	[b6bdc] <--- call _absDiff with parameters [b2bdc, b3bdc];
+	[b7bdc] <--- call _maxTwo with parameters [b5bdc, b6bdc];
+	b4bdc <--- b7bdc;
+	return [b4bdc];
+end
+
+%Function 18: Deep expr
+_deepExpr input parameter list[int b2bdd, int b3bdd]
+output parameter list[int b4bdd];
+	type int : b5bdd;
+	type int : b6bdd;
+	b5bdd <--- ((b2bdd + b3bdd) * (b2bdd - b3bdd)) + ((b2bdd * 2) - (b3bdd * 3));
+	b6bdd <--- (b5bdd + (b2bdd * (b3bdd + 1))) - ((b5bdd - b2bdd) * (b3bdd + b2bdd));
+	b4bdd <--- b5bdd + b6bdd;
+	return [b4bdd];
+end
+
+%Function 19: While with complex bool
+_loopCplx input parameter list[int b2bdb, int b3bdb]
+output parameter list[int b4bdb];
+	type int : b5bdb;
+	type int : b6bdb;
+	b4bdb <--- 0;
+	b5bdb <--- b2bdb;
+	b6bdb <--- b3bdb;
+	while((b5bdb > 0) &&& (b6bdb > 0))
+		b4bdb <--- b4bdb + b5bdb + b6bdb;
+		b5bdb <--- b5bdb - 1;
+		b6bdb <--- b6bdb - 1;
+	endwhile
+	return [b4bdb];
+end
+
+%Function 20: No output
+_noOutput input parameter list[int b2bcc];
+	type int : b3bcc;
+	type int : b4bcc;
+	b3bcc <--- b2bcc * 2;
+	b4bcc <--- b3bcc + b2bcc;
+	write(b3bcc);
+	write(b4bcc);
+	return;
+end
+
+%Main function starts here
+_main
+	%Record type definitions
+	record #point
+		type real : x;
+		type real : y;
+	endrecord
+
+	record #data
+		type real : val;
+		type real : weight;
+	endrecord
+
+	record #line
+		type #point : beginpoint;
+		type #point : endpoint;
+	endrecord
+
+	record #student
+		type int : rollno;
+		type real : marks;
+	endrecord
+
+	record #complex
+		type real : re;
+		type real : im;
+	endrecord
+
+	union #shape
+		type #point : pt;
+		type #line : ln;
+	endunion
+
+	definetype record #point as #coord
+	definetype record #line as #segment
+	definetype union #shape as #figure
+
+	%Variable declarations
+	type int : b2;
+	type int : b3;
+	type int : b4;
+	type int : b5;
+	type int : b6;
+	type int : b7;
+	type int : c2;
+	type int : c3;
+	type int : c4;
+	type int : c5;
+	type int : c6;
+	type int : c7;
+	type real : d2;
+	type real : d3;
+	type real : d4;
+	type real : d5;
+	type real : d6;
+	type real : d7;
+	type record #point : b2bc2;
+	type record #point : b3bc2;
+	type record #data : b2cd2;
+	type record #line : b2db2;
+	type record #student : b2bc3;
+	type record #student : b3bc3;
+	type record #student : b4bc3;
+	type record #complex : b2bc4;
+	type record #complex : b3bc4;
+	type int : b2dc2;
+	type int : b3dc2;
+	type int : b4dc2 : global;
+	type int : b5dc2 : global;
+	type real : d2dc;
+	type real : d3dc;
+
+	%Read input values
+	read(b2);
+	read(b3);
+	read(b4);
+	read(b5);
+	read(d2);
+	read(d3);
+
+	%Basic arithmetic
+	b6 <--- b2 + b3;
+	b7 <--- b4 * b5;
+	c2 <--- b6 - b7;
+	c3 <--- b6 + b7;
+	c4 <--- (b2 + b3) * (b4 - b5);
+	c5 <--- ((b2 * b3) + (b4 * b5)) / 2;
+	c6 <--- c4 + c5 - c2 + c3;
+	c7 <--- (c6 * 2) + (c4 / 3);
+
+	%Real arithmetic
+	d4 <--- d2 + d3;
+	d5 <--- d2 * d3;
+	d6 <--- d4 / 2;
+	d7 <--- (d2 + d3) * (d2 - d3);
+
+	%Function calls
+	[b2dc2] <--- call _sumTwo with parameters [b2, b3];
+	[b3dc2] <--- call _prodThree with parameters [b2, b3, b4];
+	[d2dc] <--- call _avgTwo with parameters [b2, d3];
+	[b4dc2] <--- call _maxTwo with parameters [b2, b3];
+	[b5dc2] <--- call _absDiff with parameters [b2, b3];
+
+	%Write results
+	write(b2dc2);
+	write(b3dc2);
+	write(d2dc);
+	write(b4dc2);
+	write(b5dc2);
+
+	%More calls
+	[c2] <--- call _factorial with parameters [b4];
+	write(c2);
+	[c3] <--- call _power with parameters [b2, b3];
+	write(c3);
+	[c4] <--- call _sumN with parameters [b5];
+	write(c4);
+
+	%Point record assignments
+	b2bc2.x <--- 1.00;
+	b2bc2.y <--- 2.00;
+	b3bc2.x <--- 4.00;
+	b3bc2.y <--- 6.00;
+	[d3dc] <--- call _dist with parameters [b2bc2, b3bc2];
+	write(d3dc);
+
+	%Data record ops
+	b2cd2.val <--- 10.50;
+	b2cd2.weight <--- 20.30;
+	[d4] <--- call _processRec with parameters [b2cd2];
+	write(d4);
+
+	%Student records
+	b2bc3.rollno <--- 1;
+	b2bc3.marks <--- 95.50;
+	b3bc3.rollno <--- 2;
+	b3bc3.marks <--- 87.25;
+	b4bc3.rollno <--- 3;
+	b4bc3.marks <--- 92.00;
+
+	%Complex number records
+	b2bc4.re <--- 3.00;
+	b2bc4.im <--- 4.00;
+	b3bc4.re <--- 1.00;
+	b3bc4.im <--- 2.00;
+
+	%Complex math with record fields
+	d4 <--- b2bc4.re + b3bc4.re;
+	d5 <--- b2bc4.im + b3bc4.im;
+	d6 <--- b2bc4.re * b3bc4.re - b2bc4.im * b3bc4.im;
+	d7 <--- b2bc4.re * b3bc4.im + b2bc4.im * b3bc4.re;
+
+	write(d4);
+	write(d5);
+	write(d6);
+	write(d7);
+
+	%Conditional statements
+	if(b2 > b3)
+	then
+		write(b2);
+	else
+		write(b3);
+	endif
+
+	if((b2 > 0) &&& (b3 > 0))
+	then
+		c5 <--- b2 + b3;
+		write(c5);
+	else
+		c5 <--- 0;
+		write(c5);
+	endif
+
+	if(~(b2 == b3))
+	then
+		write(b2);
+		write(b3);
+	endif
+
+	%Nested conditionals
+	if(b2 > 100)
+	then
+		if(b3 > 100)
+		then
+			write(b2);
+			write(b3);
+		else
+			write(b2);
+		endif
+	else
+		if(b3 > 50)
+		then
+			write(b3);
+		else
+			c6 <--- 0;
+			write(c6);
+		endif
+	endif
+
+	%Counting loop
+	b5 <--- 1;
+	c7 <--- 0;
+	while(b5 <= 10)
+		c7 <--- c7 + b5;
+		b5 <--- b5 + 1;
+	endwhile
+	write(c7);
+
+	%Nested while
+	b5 <--- 1;
+	c7 <--- 0;
+	while(b5 <= 5)
+		b6 <--- 1;
+		while(b6 <= 5)
+			c7 <--- c7 + b5 * b6;
+			b6 <--- b6 + 1;
+		endwhile
+		b5 <--- b5 + 1;
+	endwhile
+	write(c7);
+
+	%While with boolean
+	b5 <--- 10;
+	b6 <--- 20;
+	c7 <--- 0;
+	while((b5 > 0) &&& (b6 > 0))
+		c7 <--- c7 + b5 + b6;
+		b5 <--- b5 - 1;
+		b6 <--- b6 - 2;
+	endwhile
+	write(c7);
+
+	%Call remaining functions
+	[c2] <--- call _classify with parameters [b2, b3];
+	write(c2);
+
+	[c3] <--- call _matSum with parameters [b2, b3];
+	write(c3);
+
+	[c4] <--- call _cplxCalc with parameters [b2, b3, b4];
+	write(c4);
+
+	[c5] <--- call _boolTest with parameters [b2, b3, b4];
+	write(c5);
+
+	[c6] <--- call _iterCalc with parameters [b5];
+	write(c6);
+
+	[c7] <--- call _multiCall with parameters [b2, b3];
+	write(c7);
+
+	[b2dc2] <--- call _deepExpr with parameters [b2, b3];
+	write(b2dc2);
+
+	[b3dc2] <--- call _loopCplx with parameters [b4, b5];
+	write(b3dc2);
+
+	call _noOutput with parameters [b2];
+
+	%Line record ops
+	b2db2.beginpoint.x <--- 0.00;
+	b2db2.beginpoint.y <--- 0.00;
+	b2db2.endpoint.x <--- 3.00;
+	b2db2.endpoint.y <--- 4.00;
+	[d4] <--- call _recOps with parameters [b2db2];
+	write(d4);
+
+	%More expressions
+	b2 <--- (b2 + b3) * (b4 + b5);
+	b3 <--- b2 - (b3 * b4) + (b5 / 2);
+	b4 <--- ((b2 + 1) * (b3 + 2)) - ((b4 + 3) * (b5 + 4));
+	b5 <--- b2 * b3 + b4 * b5 - b2 * b5 + b3 * b4;
+	b6 <--- (b2 + b3 + b4 + b5) / 4;
+	b7 <--- (b2 * b2) + (b3 * b3) + (b4 * b4);
+	c2 <--- b6 + b7 - b2 + b3;
+	c3 <--- (c2 * b6) + (b7 / 2);
+	c4 <--- c3 - c2 + b6 - b7;
+	c5 <--- (c4 + c3) * (c2 - b6);
+
+	write(b2);
+	write(b3);
+	write(b4);
+	write(b5);
+	write(b6);
+	write(b7);
+	write(c2);
+	write(c3);
+	write(c4);
+	write(c5);
+
+	%Loop with conditional
+	b5 <--- 1;
+	b6 <--- 0;
+	while(b5 <= 20)
+		b6 <--- b6 + b5 * b5;
+		if(b6 > 500)
+		then
+			write(b6);
+		endif
+		b5 <--- b5 + 1;
+	endwhile
+	write(b6);
+
+	%Triple nested while
+	b5 <--- 1;
+	while(b5 <= 3)
+		b6 <--- 1;
+		while(b6 <= 3)
+			b7 <--- 1;
+			while(b7 <= 3)
+				c2 <--- b5 + b6 + b7;
+				write(c2);
+				b7 <--- b7 + 1;
+			endwhile
+			b6 <--- b6 + 1;
+		endwhile
+		b5 <--- b5 + 1;
+	endwhile
+
+	%Student marks
+	d4 <--- b2bc3.marks + b3bc3.marks + b4bc3.marks;
+	d5 <--- d4 / 3;
+	write(d4);
+	write(d5);
+
+	%Final calls
+	b2 <--- 100;
+	b3 <--- 200;
+	[b4] <--- call _sumTwo with parameters [b2, b3];
+	[b5] <--- call _maxTwo with parameters [b4, b3];
+	c2 <--- 5;
+	[b6] <--- call _factorial with parameters [c2];
+	c3 <--- 2;
+	c4 <--- 10;
+	[b7] <--- call _power with parameters [c3, c4];
+
+	write(b4);
+	write(b5);
+	write(b6);
+	write(b7);
+
+	%Record field writes
+	write(b2bc2.x);
+	write(b2bc2.y);
+	write(b3bc2.x);
+	write(b3bc2.y);
+	write(b2cd2.val);
+	write(b2cd2.weight);
+	write(b2db2.beginpoint.x);
+	write(b2db2.beginpoint.y);
+	write(b2db2.endpoint.x);
+	write(b2db2.endpoint.y);
+
+	return;
+end
